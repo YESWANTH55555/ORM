@@ -19,9 +19,31 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+admin.py
+from django.contrib import admin
+from . models import Car
+# Register your models here.
+
+admin.site.register(Car)
+
+class CarAdmin(admin.ModelAdmin):
+    list_display = ('car_id','brand','model','year','price')
+
+models.py
+from django.db import models
+
+# Create your models here.
+class Car(models.Model):
+    car_id = models.IntegerField(primary_key=True)
+    brand = models.CharField(max_length=20)
+    model = models.CharField(max_length=20)
+    year = models.DateField()
+    price = models.IntegerField()
+```
 
 ## OUTPUT
-
+![alt text](Cars.png)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
